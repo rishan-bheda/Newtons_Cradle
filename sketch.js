@@ -5,10 +5,6 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 
-
-var bobDiameter = 50;
-
-
 function preload()
 {
 	
@@ -17,11 +13,15 @@ function preload()
 function setup() {
 	createCanvas(800, 700);
 
+	var bobDiameter = 50;
+	var bobStartXPosition = width/2;
+	var bobStartYPosition = 500;
+
 
 	engine = Engine.create();
 	world = engine.world;
 
-	roof = new Ground(400,50,800,50);
+	roof = new Ground(width/2,50,800,50);
 
 	bobObject1 = new Bob(bobStartXPosition-bobDiameter*2,bobStartYPosition,bobDiameter); 
 	bobObject2 = new Bob(bobStartXPosition-bobDiameter,bobStartYPosition,bobDiameter); 
@@ -44,7 +44,7 @@ function setup() {
 function draw() {
 	
 	rectMode(CENTER);
-	background(0);
+	background(200);
 
 	roof.display();
 	bobObject1.display();
